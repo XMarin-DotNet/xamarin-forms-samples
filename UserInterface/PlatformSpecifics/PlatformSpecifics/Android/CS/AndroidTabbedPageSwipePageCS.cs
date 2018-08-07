@@ -14,12 +14,14 @@ namespace PlatformSpecifics
             _returnToPlatformSpecificsPage = restore;
 
             On<Android>().SetOffscreenPageLimit(2)
-                         .SetIsSwipePagingEnabled(true);
-            Title = "Tabbed Page";
+                         .SetIsSwipePagingEnabled(true)
+                         .SetToolbarPlacement(ToolbarPlacement.Bottom)
+                         .SetBarItemColor(Color.Black)
+                         .SetBarSelectedItemColor(Color.Red);
 
             var firstPage = CreatePage(1);
-
-            var button = new Button
+            var stackLayout = firstPage.Content as StackLayout;
+            var button = new Xamarin.Forms.Button
             {
                 Text = "Toggle Swipe Paging"
             };
@@ -27,10 +29,9 @@ namespace PlatformSpecifics
             {
                 On<Android>().SetIsSwipePagingEnabled(!On<Android>().IsSwipePagingEnabled());
             };
-
-            var stackLayout = firstPage.Content as StackLayout;
             stackLayout.Children.Add(button);
 
+            Title = "TabbedPage";
             Children.Add(firstPage);
             Children.Add(CreatePage(2));
             Children.Add(CreatePage(3));
@@ -40,12 +41,13 @@ namespace PlatformSpecifics
 
         ContentPage CreatePage(int pageNumber)
         {
-            var returnButton = new Button { Text = "Return to Platform-Specifics List" };
+            var returnButton = new Xamarin.Forms.Button { Text = "Return to Platform-Specifics List" };
             returnButton.Clicked += (sender, e) => _returnToPlatformSpecificsPage.Execute(null);
 
             return new ContentPage
             {
                 Title = string.Format("Page {0}", pageNumber),
+                Icon = "csharp.png",
                 Content = new StackLayout
                 {
                     Margin = new Thickness(20),
