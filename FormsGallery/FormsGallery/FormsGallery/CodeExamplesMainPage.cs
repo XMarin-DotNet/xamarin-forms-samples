@@ -8,7 +8,7 @@ namespace FormsGallery
         public CodeExamplesMainPage()
         {
             // Define command for the items in the TableView.
-            Command<Type> navigateCommand = 
+            Command<Type> navigateCommand =
                 new Command<Type>(async (Type pageType) =>
                 {
                     Page page = (Page)Activator.CreateInstance(pageType);
@@ -24,10 +24,18 @@ namespace FormsGallery
                     {
                         new TextCell
                         {
-                            Text = "Label",
-                            Detail = "Display a text string",
+                            Text = "BoxView",
+                            Detail = "Display a colored rectangle",
                             Command = navigateCommand,
-                            CommandParameter = typeof(CodeExamples.LabelDemoPage)
+                            CommandParameter = typeof(CodeExamples.BoxViewDemoPage)
+                        },
+
+                        new TextCell
+                        {
+                            Text = "Ellipse",
+                            Detail = "Display an ellipse or circle",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.EllipseDemoPage)
                         },
 
                         new TextCell
@@ -40,18 +48,26 @@ namespace FormsGallery
 
                         new TextCell
                         {
-                            Text = "BoxView",
-                            Detail = "Display a colored rectangle",
+                            Text = "Label",
+                            Detail = "Display a text string",
                             Command = navigateCommand,
-                            CommandParameter = typeof(CodeExamples.BoxViewDemoPage)
+                            CommandParameter = typeof(CodeExamples.LabelDemoPage)
                         },
 
                         new TextCell
                         {
-                            Text = "WebView",
-                            Detail = "Display a Web page",
+                            Text = "Line",
+                            Detail = "Display a line",
                             Command = navigateCommand,
-                            CommandParameter = typeof(CodeExamples.WebViewDemoPage)
+                            CommandParameter = typeof(CodeExamples.LineDemoPage)
+                        },
+
+                        new TextCell
+                        {
+                            Text = "Map",
+                            Detail = "Display a map",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.MapDemoPage)
                         },
 
                         new TextCell
@@ -64,12 +80,44 @@ namespace FormsGallery
 
                         new TextCell
                         {
-                            Text = "Map",
-                            Detail = "Display a map",
+                            Text = "Path",
+                            Detail = "Display curves and complex shapes",
                             Command = navigateCommand,
-                            CommandParameter = typeof(CodeExamples.MapDemoPage)
+                            CommandParameter = typeof(CodeExamples.PathDemoPage)
+                        },
+
+                        new TextCell
+                        {
+                            Text = "Polygon",
+                            Detail = "Display a polygon",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.PolygonDemoPage)
+                        },
+
+                        new TextCell
+                        {
+                            Text = "Polyline",
+                            Detail = "Display a series of connected straight lines",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.PolylineDemoPage)
+                        },
+
+                        new TextCell
+                        {
+                            Text = "Rectangle",
+                            Detail = "Display a rectangle or square",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.RectangleDemoPage)
+                        },
+
+                        new TextCell
+                        {
+                            Text = "WebView",
+                            Detail = "Display a Web page",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.WebViewDemoPage)
                         }
-                    }, 
+                    },
 
                     new TableSection("Views that Initiate Commands")
                     {
@@ -91,15 +139,47 @@ namespace FormsGallery
 
                         new TextCell
                         {
+                            Text = "RadioButton",
+                            Detail = "Initiate a command",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.RadioButtonDemoPage)
+                        },
+
+                        new TextCell
+                        {
+                            Text = "RefreshView",
+                            Detail = "Initiate a command",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.RefreshViewDemoPage)
+                        },
+
+                        new TextCell
+                        {
                             Text = "SearchBar",
                             Detail = "Initiate a search",
                             Command = navigateCommand,
                             CommandParameter = typeof(CodeExamples.SearchBarDemoPage)
+                        },
+
+                        new TextCell
+                        {
+                            Text = "SwipeView",
+                            Detail = "Initiate a command",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.SwipeViewDemoPage)
                         }
                     },
 
                     new TableSection("Views for Common Data Types")
                     {
+                        new TextCell
+                        {
+                            Text = "CheckBox (bool)",
+                            Detail = "Select a Boolean value",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.CheckBoxPage)
+                        },
+
                         new TextCell
                         {
                             Text = "Slider (double)",
@@ -183,10 +263,18 @@ namespace FormsGallery
                     {
                         new TextCell
                         {
-                            Text = "Picker",
-                            Detail = "Select from a list of text items",
+                            Text = "CarouselView",
+                            Detail = "Present data in a carousel layout",
                             Command = navigateCommand,
-                            CommandParameter = typeof(CodeExamples.PickerDemoPage)
+                            CommandParameter = typeof(CodeExamples.CarouselViewDemoPage)
+                        },
+
+                        new TextCell
+                        {
+                            Text = "CollectionView",
+                            Detail = "Select from a list of data items",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.CollectionViewDemoPage)
                         },
 
                         new TextCell
@@ -199,10 +287,26 @@ namespace FormsGallery
 
                         new TextCell
                         {
+                            Text = "IndicatorView",
+                            Detail = "Display indicators for each item in a CarouselView",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.IndicatorViewDemoPage)
+                        },
+
+                        new TextCell
+                        {
+                            Text = "Picker",
+                            Detail = "Select from a list of text items",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.PickerDemoPage)
+                        },
+
+                        new TextCell
+                        {
                             Text = "TableView for a menu",
                             Detail = "Show a table suitable for a menu",
                             Command = navigateCommand,
-                            CommandParameter = typeof(CodeExamples.TableViewMenuDemoPage) 
+                            CommandParameter = typeof(CodeExamples.TableViewMenuDemoPage)
                         },
 
                         new TextCell
@@ -320,21 +424,21 @@ namespace FormsGallery
                             Text = "ContentPage",
                             Detail = "Present a normal page",
                             Command = navigateCommand,
-                            CommandParameter = typeof(CodeExamples.ContentPageDemoPage) 
+                            CommandParameter = typeof(CodeExamples.ContentPageDemoPage)
+                        },
+                        new TextCell
+                        {
+                            Text = "FlyoutPage",
+                            Detail = "Present two pages with a list and an item",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CodeExamples.FlyoutPageDemoPage)
                         },
                         new TextCell
                         {
                             Text = "NavigationPage",
                             Detail = "Present a navigatable page",
                             Command = navigateCommand,
-                            CommandParameter = typeof(CodeExamples.NavigationPageDemoPage) 
-                        },
-                        new TextCell
-                        {
-                            Text = "MasterDetailPage",
-                            Detail = "Present two pages with a list and an item",
-                            Command = navigateCommand,
-                            CommandParameter = typeof(CodeExamples.MasterDetailPageDemoPage)
+                            CommandParameter = typeof(CodeExamples.NavigationPageDemoPage)
                         },
                         new TextCell
                         {

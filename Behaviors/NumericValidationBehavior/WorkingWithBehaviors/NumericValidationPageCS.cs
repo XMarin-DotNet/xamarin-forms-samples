@@ -7,13 +7,13 @@ namespace WorkingWithBehaviors
 		public NumericValidationPageCS ()
 		{
 			Title = "Numeric";
-			Icon = "csharp.png";
+			IconImageSource = "csharp.png";
 
 			var entry = new Entry { Placeholder = "Enter a System.Double" };
 			entry.Behaviors.Add (new NumericValidationBehavior ());
 
 			Content = new StackLayout {
-				Padding = new Thickness (0, 20, 0, 0),
+				Padding = new Thickness (5, 50, 5, 0),
 				Children = {
 					new Label {
 						Text = "Red when the number isn't valid",

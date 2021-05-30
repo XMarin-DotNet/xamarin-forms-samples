@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Foundation;
+﻿using Foundation;
 using UIKit;
 
 namespace TodoREST.iOS
@@ -12,12 +9,8 @@ namespace TodoREST.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-
-            App.Speech = new Speech();
             LoadApplication(new App());
-
             return base.FinishedLaunching(app, options);
         }
     }
 }
-

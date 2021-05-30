@@ -4,46 +4,53 @@ using SQLite;
 
 namespace Todo
 {
-	public class TodoItemDatabase
-	{
-		readonly SQLiteAsyncConnection database;
+    public class TodoItemDatabase
+    {
+        static SQLiteAsyncConnection Database;
 
-		public TodoItemDatabase(string dbPath)
-		{
-			database = new SQLiteAsyncConnection(dbPath);
-			database.CreateTableAsync<TodoItem>().Wait();
-		}
+        public static readonly AsyncLazy<TodoItemDatabase> Instance = new AsyncLazy<TodoItemDatabase>(async () =>
+        {
+            var instance = new TodoItemDatabase();
+            CreateTableResult result = await Database.CreateTableAsync<TodoItem>();
+            return instance;
+        });
 
-		public Task<List<TodoItem>> GetItemsAsync()
-		{
-			return database.Table<TodoItem>().ToListAsync();
-		}
+        public TodoItemDatabase()
+        {
+            Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+        }
 
-		public Task<List<TodoItem>> GetItemsNotDoneAsync()
-		{
-			return database.QueryAsync<TodoItem>("SELECT * FROM [TodoItem] WHERE [Done] = 0");
-		}
+        public Task<List<TodoItem>> GetItemsAsync()
+        {            
+            return Database.Table<TodoItem>().ToListAsync();
+        }
 
-		public Task<TodoItem> GetItemAsync(int id)
-		{
-			return database.Table<TodoItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
-		}
+        public Task<List<TodoItem>> GetItemsNotDoneAsync()
+        {
+            return Database.QueryAsync<TodoItem>("SELECT * FROM [TodoItem] WHERE [Done] = 0");
+        }
 
-		public Task<int> SaveItemAsync(TodoItem item)
-		{
-			if (item.ID != 0)
-			{
-				return database.UpdateAsync(item);
-			}
-			else {
-				return database.InsertAsync(item);
-			}
-		}
+        public Task<TodoItem> GetItemAsync(int id)
+        {
+            return Database.Table<TodoItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
+        }
 
-		public Task<int> DeleteItemAsync(TodoItem item)
-		{
-			return database.DeleteAsync(item);
-		}
-	}
+        public Task<int> SaveItemAsync(TodoItem item)
+        {
+            if (item.ID != 0)
+            {
+                return Database.UpdateAsync(item);
+            }
+            else
+            {
+                return Database.InsertAsync(item);
+            }
+        }
+
+        public Task<int> DeleteItemAsync(TodoItem item)
+        {
+            return Database.DeleteAsync(item);
+        }
+    }
 }
 

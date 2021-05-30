@@ -1,5 +1,17 @@
-Accessibility
-=============
+---
+name: Xamarin.Forms - Accessibility
+description: "How to use the AutomationProperties class so that a screen reader can speak about the visible user interface elements (UI)"
+page_type: sample
+languages:
+- csharp
+products:
+- xamarin
+extensions:
+    tags:
+    - ui
+urlFragment: userinterface-accessibility
+---
+# Accessibility
 
 This sample demonstrates how to use the `AutomationProperties` class, so that a screen reader can speak about the user interface elements on the page.
 
@@ -11,9 +23,7 @@ When running this sample with Narrator enabled on the Universal Windows Platform
 
 On all platforms, tap an element once to hear accessibility values. Double tap anywhere on the screen to activate the selected element. Swipe left or right with one finger to switch to the previous or next element.
 
-For more information about this sample see [Describing User Interface Elements](https://developer.xamarin.com/guides/xamarin-forms/advanced/accessibility/describing-ui-elements/).
+For more information about this sample see [automation properties in Xamarin.Forms](https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/accessibility/automation-properties).
 
-Author
-------
+![Accessibility application screenshot](Screenshots/01All.png "Accessibility application screenshot")
 
-David Britch

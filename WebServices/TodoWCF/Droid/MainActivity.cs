@@ -11,14 +11,10 @@ namespace TodoWCF.Droid
 
         protected override void OnCreate(Bundle bundle)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
-
             base.OnCreate(bundle);
             Instance = this;
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            App.Speech = new Speech();
             LoadApplication(new App());
         }
     }

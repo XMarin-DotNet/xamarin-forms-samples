@@ -1,15 +1,22 @@
-Working with Maps
-==============
+---
+name: Xamarin.Forms - Working with Maps
+description: "This sample demonstrates how to work with maps in Xamarin.Forms."
+page_type: sample
+languages:
+- csharp
+products:
+- xamarin
+extensions:
+    tags:
+    - map
+    - ui
+urlFragment: workingwithmaps
+---
+# Working with maps in Xamarin.Forms
 
-This sample relates to the [Working with Maps in Xamarin.Forms](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/maps) doc.
+The `Map` control displays a map, and requires the Xamarin.Forms.Maps NuGet package.
 
-![screenshot](https://raw.githubusercontent.com/xamarin/xamarin-forms-samples/master/WorkingWithMaps/Screenshots/maps-zoom-sml.png "Map zoom")
+For more information, see [Xamarin.Forms Map](https://docs.microsoft.com/xamarin/xamarin-forms/user-interface/map).
 
-Requirements 
-------------
-An iOS provisioning profile is required to deploy this sample to a simulator.
+![Maps application screenshot](Screenshots/01All.png "Map application screenshot")
 
-Author
-------
-
-Craig Dunn

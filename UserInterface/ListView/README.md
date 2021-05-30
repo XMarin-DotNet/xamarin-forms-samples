@@ -1,8 +1,4 @@
-Xamarin.Forms ListView Samples
-===========================
+# Xamarin.Forms ListView Samples
 
-Sample code associated with the [ListView Docs](https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/).
+Sample code associated with the [ListView Docs](https://docs.microsoft.com/xamarin/xamarin-forms/user-interface/listview/).
 
-Author
-------
-Nathan Castle

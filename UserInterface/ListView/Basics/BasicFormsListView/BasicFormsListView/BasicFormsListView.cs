@@ -1,18 +1,12 @@
-﻿using System;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace BasicFormsListView
 {
-	public class App : Application
+    public class App : Application
 	{
 		public App ()
 		{
-			// The root page of your application
-			//MainPage = new ListViewXaml();
-			MainPage = new NavigationPage();
-			MainPage.Navigation.PushAsync (new ListViewCode ());
-			MainPage.Navigation.PushAsync(new ListViewXaml()); 
+			MainPage = new NavigationPage(new MainPage());
 		}
 
 		protected override void OnStart ()
